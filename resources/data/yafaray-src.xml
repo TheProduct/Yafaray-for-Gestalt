@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<scene type="triangle">
+
+<material name="defaultMat">
+	<type sval="shinydiffusemat"/>
+</material>
+
+<background name="world_background">
+	<color r="1" g="1" b="1" a="1"/>
+	<power fval="1"/>
+	<type sval="constant"/>
+</background>
+
+<integrator name="default">
+	<AO_color r="1" g="1" b="1" a="1"/>
+	<AO_distance fval="1"/>
+	<AO_samples ival="32"/>
+	<caustic_depth ival="10"/>
+	<caustic_mix ival="100"/>
+	<caustic_radius fval="0.25"/>
+	<caustics bval="true"/>
+	<do_AO bval="true"/>
+	<photons ival="500000"/>
+	<raydepth ival="2"/>
+	<shadowDepth ival="2"/>
+	<transpShad bval="false"/>
+	<type sval="directlighting"/>
+</integrator>
+
+<integrator name="volintegr">
+	<type sval="none"/>
+</integrator>
+
+<render>
+	<AA_inc_samples ival="1"/>
+	<AA_minsamples ival="1"/>
+	<AA_passes ival="1"/>
+	<AA_pixelwidth fval="1.5"/>
+	<AA_threshold fval="0.05"/>
+	<background_name sval="world_background"/>
+	<camera_name sval="cam"/>
+	<clamp_rgb bval="false"/>
+	<filter_type sval="box"/>
+	<gamma fval="1.8"/>
+	<integrator_name sval="default"/>
+	<threads ival="1"/>
+	<volintegrator_name sval="volintegr"/>
+	<width ival="800"/>
+	<height ival="600"/>
+	<xstart ival="0"/>
+	<ystart ival="0"/>
+	<z_channel bval="true"/>
+</render>
+</scene>
