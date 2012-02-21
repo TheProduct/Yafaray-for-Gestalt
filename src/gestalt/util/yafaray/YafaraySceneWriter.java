@@ -26,7 +26,7 @@ package gestalt.util.yafaray;
 
 import data.Resource;
 import gestalt.render.Drawable;
-import gestalt.render.bin.AbstractBin;
+import gestalt.render.bin.Bin;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -55,7 +55,7 @@ public class YafaraySceneWriter {
 
     private final XMLElement mXML;
 
-    public YafaraySceneWriter(final String pXMLFileName, final AbstractBin pBin) {
+    public YafaraySceneWriter(final String pXMLFileName, final Bin pBin) {
         mCurrentXMLFileName = Resource.getPath("") + "/" + pXMLFileName + "-" + werkzeug.Util.now() + ".xml";
         mXML = loadXML(DEFAULT_SCENE_XML);
 
@@ -99,12 +99,12 @@ public class YafaraySceneWriter {
         mXML.addChild(pXMLNode);
     }
 
-    private void parse(final AbstractBin pBin) {
+    private void parse(final Bin pBin) {
         Drawable[] mySortables = pBin.getDataRef();
         for (int i = 0; i < pBin.size(); i++) {
             final Drawable myDrawable = mySortables[i];
-            if (myDrawable instanceof AbstractBin) {
-                parse((AbstractBin)myDrawable);
+            if (myDrawable instanceof Bin) {
+                parse((Bin)myDrawable);
             }
             if (myDrawable != null) {
                 if (myDrawable.isActive()) {

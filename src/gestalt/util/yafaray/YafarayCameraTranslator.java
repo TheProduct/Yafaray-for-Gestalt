@@ -23,11 +23,9 @@
 
 package gestalt.util.yafaray;
 
-
-import gestalt.impl.jogl.render.plugin.JoglCamera;
 import gestalt.render.Drawable;
-import gestalt.render.plugin.Camera;
-import mathematik.Vector3f;
+import gestalt.render.controller.Camera;
+
 import nanoxml.XMLElement;
 
 
@@ -35,7 +33,7 @@ public class YafarayCameraTranslator
         implements YafarayDrawableTranslator {
 
     public boolean isClass(final Drawable theDrawable) {
-        return theDrawable instanceof JoglCamera;
+        return theDrawable instanceof Camera;
     }
 
     public void parse(final YafaraySceneWriter pParent, final Drawable pDrawable) {
